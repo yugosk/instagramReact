@@ -1,21 +1,3 @@
-const arrayPosts = [
-    {
-        userImage: "assets/img/meowed.svg",
-        userName: "meowed",
-        postImage: "assets/img/gato-telefone.svg",
-        curtidaImage: "assets/img/respondeai.svg",
-        curtidaUser: "respondeai"
-    },
-    {
-        userImage: "assets/img/barked.svg",
-        userName: "barked",
-        postImage: "assets/img/dog.svg",
-        curtidaImage: "assets/img/adorable_animals.svg",
-        curtidaUser: "adorable_animals"
-
-    }
-];
-
 function AcoesTopo() {
     return (
         <div class="acoes">
@@ -80,6 +62,24 @@ function Fundo(props) {
 }
 
 export default function Posts() {
+    const arrayPosts = [
+        {
+            userImage: "assets/img/meowed.svg",
+            userName: "meowed",
+            postImage: "assets/img/gato-telefone.svg",
+            curtidaImage: "assets/img/respondeai.svg",
+            curtidaUser: "respondeai"
+        },
+        {
+            userImage: "assets/img/barked.svg",
+            userName: "barked",
+            postImage: "assets/img/dog.svg",
+            curtidaImage: "assets/img/adorable_animals.svg",
+            curtidaUser: "adorable_animals"
+    
+        }
+    ];
+    
     return (
         <div class="posts">
             {
