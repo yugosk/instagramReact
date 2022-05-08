@@ -77,6 +77,7 @@ function Sugestoes() {
 
     return (
         <div class="sugestoes">
+            <TituloSugestoes />
             {arraySugestoes.map(
                 item => (
                     <Sugestao image={item.image} nome={item.nome} razao={item.razao}/>

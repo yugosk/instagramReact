@@ -15,36 +15,36 @@ function Story(props) {
 export default function Stories() {
     const arrayStories = [
         {
-            image: "/assets/img/9gag.svg",
+            image: "assets/img/9gag.svg",
             user: "9gag"        
         },
         {
-            image: "/assets/img/meowed.svg",
+            image: "assets/img/meowed.svg",
             user: "meowed"        
         
         },
         {
-            image: "/assets/img/barked.svg",
+            image: "assets/img/barked.svg",
             user: "barked"        
         },
         {
-            image: "/assets/img/nathanwpylestrangeplanet.svg",
+            image: "assets/img/nathanwpylestrangeplanet.svg",
             user: "nathanwpylestrangeplanet"        
         },
         {
-            image: "/assets/img/wawawicomics.svg",
+            image: "assets/img/wawawicomics.svg",
             user: "wawawicomics"        
         },
         {
-            image: "/assets/img/respondeai.svg",
+            image: "assets/img/respondeai.svg",
             user: "respondeai"
         },
         {
-            image: "/assets/img/filomoderna.svg",
+            image: "assets/img/filomoderna.svg",
             user: "filomoderna"        
         },
         {
-            image: "/assets/img/memeriagourmet.svg",
+            image: "assets/img/memeriagourmet.svg",
             user: "memeriagourmet"        
         }
     ];
