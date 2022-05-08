@@ -196,6 +196,15 @@ body {
   margin-right: 6px;
 }
 
+.post .fundo .acoes .icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.post .fundo .acoes .like {
+  color: #fc1551;
+}
+
 .post .fundo .curtidas {
   display: flex;
   align-items: center;

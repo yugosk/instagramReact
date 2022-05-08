@@ -1,10 +1,4 @@
-function AcoesTopo() {
-    return (
-        <div class="acoes">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-        </div>
-    );
-}
+import React from "react";
 
 function TopoPost(props) {
     return (
@@ -13,50 +7,55 @@ function TopoPost(props) {
               <img src={props.image} />
               {props.user}
             </div>
-            <AcoesTopo />
+            <div class="acoes">
+                <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </div>
         </div>
     );
 }
 
 function Conteudo(props) {
-    return (
-        <div class="conteudo">
-            <img src={props.image} />
-        </div>
-    );
-}
+    const initialLike = "heart-outline";
+    const [like, setLike] = React.useState(initialLike);
 
-function AcoesFundo() {
-    return (
-        <div class="acoes">
-            <div>
-              <ion-icon name="heart-outline"></ion-icon>
-              <ion-icon name="chatbubble-outline"></ion-icon>
-              <ion-icon name="paper-plane-outline"></ion-icon>
-            </div>
-            <div>
-              <ion-icon name="bookmark-outline"></ion-icon>
-            </div>
-        </div>
-    );
-}
+    function likeIcon() {
+        if(like === initialLike){
+            setLike('heart');
+            document.querySelector(".post .fundo .acoes ion-icon:first-of-type").classList.add("like");
+        } else {
+            setLike('heart-outline');
+            document.querySelector(".post .fundo .acoes ion-icon:first-of-type").classList.remove("like");
+        }
+    }
 
-function Curtidas(props) {
-    return (
-        <div class="curtidas">
-            <img src={props.image} />
-            <div class="texto">
-              Curtido por <strong>{props.user}</strong> e <strong>outras 101.523 pessoas</strong>
-            </div>
-        </div>
-    );
-}
+    function likePost() {
+        setLike("heart");
+        document.querySelector(".post .fundo .acoes ion-icon:first-of-type").classList.add("like")
+    }
 
-function Fundo(props) {
     return (
         <div class="fundo">
-            <AcoesFundo />
-            <Curtidas image={props.image} user={props.user}/>
+            <div class="conteudo">
+                <img src={props.imagePost} onClick={likePost} />
+            </div>
+
+            <div class="acoes">
+               <div>
+                <ion-icon name={like} onClick={likeIcon}></ion-icon>
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                 <ion-icon name="paper-plane-outline"></ion-icon>
+               </div>
+               <div>
+                 <ion-icon name="bookmark-outline"></ion-icon>
+               </div>
+            </div>
+
+            <div class="curtidas">
+                <img src={props.imageLike} />
+                <div class="texto">
+                  Curtido por <strong>{props.userLike}</strong> e <strong>outras {props.count} pessoas</strong>
+                </div>
+            </div>
         </div>
     );
 }
@@ -68,15 +67,16 @@ export default function Posts() {
             userName: "meowed",
             postImage: "assets/img/gato-telefone.svg",
             curtidaImage: "assets/img/respondeai.svg",
-            curtidaUser: "respondeai"
+            curtidaUser: "respondeai",
+            contagemLikes: "101.523"
         },
         {
             userImage: "assets/img/barked.svg",
             userName: "barked",
             postImage: "assets/img/dog.svg",
             curtidaImage: "assets/img/adorable_animals.svg",
-            curtidaUser: "adorable_animals"
-    
+            curtidaUser: "adorable_animals",
+            contagemLikes: "99.159"
         }
     ];
     
@@ -86,9 +86,8 @@ export default function Posts() {
                 arrayPosts.map(
                     item => (
                         <div class="post">
-                        <TopoPost image={item.curtidaUser} user={item.curtidaUser}/>
-                        <Conteudo image ={item.postImage}/>
-                        <Fundo image={item.curtidaImage} user={item.curtidaUser}/>
+                        <TopoPost image={item.userImage} user={item.userName}/>
+                        <Conteudo imagePost ={item.postImage} imageLike={item.curtidaImage} userLike={item.curtidaUser} count={item.contagemLikes}/>
                         </div>
                     )
                 )
